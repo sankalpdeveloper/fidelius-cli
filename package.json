@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": ["abdm", "phr", "encryption", "decryption", "ECDH","Curve25519" ],
   "author": "",
   "license": "ISC"
 }
