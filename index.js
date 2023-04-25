@@ -18,18 +18,32 @@ const execFideliusCli = (args) => {
 		);
 	}
 };
-
+/**
+ * Function to getEcdhKeyMaterial
+ * @returns
+ */
 const getEcdhKeyMaterial = () => {
 	const result = execFideliusCli(["gkm"]);
 	return result;
 };
 
+
+/**
+ * Function to encrypt using HIU's public key and nonce and HIP's private key and nonse
+ * @param {Object} EncryptionParams
+ * @param {String} EncryptionParams.stringToEncrypt 
+ * @param {String} EncryptionParams.senderNonce 
+ * @param {String} EncryptionParams.requesterNonce 
+ * @param {String} EncryptionParams.senderPrivateKey 
+ * @param {String} EncryptionParams.requesterPublicKey 
+ * @returns
+ */
 const encryptData = ({
 	stringToEncrypt,
 	senderNonce,
 	requesterNonce,
 	senderPrivateKey,
-	requesterPublicKey,
+	requesterPublicKey
 }) => {
 	const result = execFideliusCli([
 		"e",
@@ -42,6 +56,16 @@ const encryptData = ({
 	return result;
 };
 
+/**
+ * Function to decrypt using HIP's private key and nonce and HIP's public key and nonse
+ * @param {Object} DecryptionParams
+ * @param {String} DecryptionParams.encryptedData 
+ * @param {String} DecryptionParams.requesterNonce 
+ * @param {String} DecryptionParams.senderNonce 
+ * @param {String} DecryptionParams.requesterPrivateKey 
+ * @param {String} DecryptionParams.senderPublicKey 
+ * @returns
+ */
 const decryptData = ({
 	encryptedData,
 	requesterNonce,
